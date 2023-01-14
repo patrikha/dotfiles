@@ -16,6 +16,7 @@ input * {
     xkb_layout "se"
 }
 
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
 input "1267:12596:ASUE140A:00_04F3:3134_Touchpad" {
     left_handed enabled
     tap enabled
@@ -24,3 +25,4 @@ input "1267:12596:ASUE140A:00_04F3:3134_Touchpad" {
     accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
     pointer_accel 0 # set mouse sensitivity (between -1 and 1)
 }
+{{ end }}
