@@ -1,0 +1,12 @@
+# General
+screenshot
+effect-pixelate=30 
+clock
+scaling=fill
+
+# Indicator
+ignore-empty-password
+indicator-caps-lock
+
+# Behavior
+show-failed-attempts

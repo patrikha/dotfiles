@@ -1,0 +1,33 @@
+#
+# Configuration file for Sway
+# 
+# $XDG_CONFIG_DIR/sway/config
+#
+
+	exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+#
+# Set variables
+#
+	# Logo key. Use Mod1 for Alt.
+	set $mod Mod4
+
+	# Home row direction keys, like vim
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+
+	# Your preferred terminal emulator
+	set $term alacritty
+
+	# Your preferred application launcher
+	set $menu dmenu_path | exec nwg-drawer
+	
+#
+# Include files in config.d directory
+#
+	# Include files from config.d directory
+	include $HOME/.config/sway/config.d/*
+
+
