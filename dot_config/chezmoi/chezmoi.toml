@@ -1,2 +1,6 @@
 [edit]
     command = "emacs"
+
+[diff]
+    command = "meld"
+    args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
