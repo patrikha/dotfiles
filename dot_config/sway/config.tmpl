@@ -1,6 +1,6 @@
 #
 # Configuration file for Sway
-# 
+#
 # $XDG_CONFIG_DIR/sway/config
 #
 
@@ -19,15 +19,17 @@
 	set $right l
 
 	# Your preferred terminal emulator
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+	set $term foot
+{{ else }}
 	set $term alacritty
+{{ end }}
 
 	# Your preferred application launcher
 	set $menu dmenu_path | exec nwg-drawer
-	
+
 #
 # Include files in config.d directory
 #
 	# Include files from config.d directory
 	include $HOME/.config/sway/config.d/*
-
-
