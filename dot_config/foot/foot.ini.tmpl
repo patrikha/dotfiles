@@ -19,7 +19,11 @@
 # underline-offset=<font metrics>
 # box-drawings-uses-font-glyphs=no
 # dpi-aware=auto
+{{ if eq .chezmoi.hostname "mac-linux" }}
+font=Hack:size=10
+{{ else }}
 font=Hack:size=12
+{{ end }}
 
 # initial-window-size-pixels=700x500  # Or,
 # initial-window-size-chars=<COLSxROWS>
