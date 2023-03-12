@@ -177,8 +177,7 @@ bindm = $mainMod, mouse:273, resizewindow
 
 # Autostart
 exec-once = foot --server
-exec-once = swayidle -w timeout 300 $lock before-sleep $lock
-    #timeout 600 'swaymsg "output * dpms off"' \
-    #resume 'swaymsg "output * dpms on"' \
+exec-once = swayidle -w timeout 300 '$lock' timeout 600 'hyprctl dispatch dpms off *' resume 'hyprctl dispatch dpms on *' before-sleep $lock
 
+# Source theme
 source = ~/.config/hypr/themes/yaru/theme.conf
