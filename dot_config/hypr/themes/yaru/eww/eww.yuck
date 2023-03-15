@@ -129,7 +129,7 @@
                   :class "module_essid"
                   :text ESSID_WLAN))
         (button
-            :class "module-wif"
+            :class "module-wifi"
             :onclick "networkmanager_dmenu"
             WLAN_ICON))))
 
@@ -236,7 +236,7 @@
         :class "right_modules"
     ;; (bright)
     ;; (volume)
-    ;; (wifi)
+    (wifi)
     ;; (sep)
     ;; (bat)
     ;; (mem)
