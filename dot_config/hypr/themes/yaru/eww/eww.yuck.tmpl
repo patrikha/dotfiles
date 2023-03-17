@@ -236,9 +236,13 @@
         :class "right_modules"
     ;; (bright)
     ;; (volume)
+{{ if ne .chezmoi.hostname "sesa150507-beast" }}
     (wifi)
+{{ end }}
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
     ;; (sep)
     ;; (bat)
+{{ end }}
     ;; (mem)
     ;; (sep)
     (clock_module)
@@ -503,7 +507,7 @@
     :monitor 0
     :geometry (geometry
     :x "20"
-    :y "7%"
+    :y "25"
     :anchor "top right"
     :width "270px"
     :height "60px")
