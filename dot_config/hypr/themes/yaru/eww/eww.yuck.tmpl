@@ -148,14 +148,14 @@
             :vexpand "false"
             :hexpand "false"
         (circular-progress
-            :value {EWW_BATTERY["BAT"].capacity}
+            :value {EWW_BATTERY["BATT"].capacity}
             :class "circularbar"
-            :thickness 4
+            :thickness 2
             (button
                 :onclick "${EWW_CMD} open --toggle system"
                 :class "circulartext"
-                :tooltip "battery on ${EWW_BATTERY["BAT"].capacity}%"
-                " "))))
+                :tooltip "battery on ${EWW_BATTERY["BATT"].capacity}%"
+                "PWR"))))
 
 (defwidget mem []
         (box
@@ -264,7 +264,7 @@
 {{ end }}
 {{ if eq .chezmoi.hostname "patrik-zenbook" }}
     ;; (sep)
-    ;; (bat)
+    (bat)
 {{ end }}
     (mem)
     (cpu)
