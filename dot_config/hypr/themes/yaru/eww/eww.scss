@@ -53,7 +53,7 @@ $white:     #FDFDFD;
 /** tooltip!! **/
 tooltip.background {
     background-color: $background;
-    font-size: 18;
+    font-size: 14;
     border-radius: 10px;
     color: $white;
 }
@@ -156,18 +156,18 @@ tooltip label {
 
 .launcher_module {
     background-color: rgba(00, 00, 00, 0.0);
-  }
+}
 
 .mem_module {
     background-color: rgba(00, 00, 00, 0.0);
     border-radius: 16px;
     margin: 0px 10px 0px 3px;
-  }
+}
 .bat_module {
     background-color: rgba(00, 00, 00, 0.0);
     border-radius: 16px;
     margin: 0px 10px 0px 10px;
-  }
+}
 
 .works {
     font-size: 18px;

@@ -9,14 +9,16 @@
 (defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "scripts/sbvol --get")
+(defpoll volume_percent :interval "1s"  "amixer get Master | tail -n1 | awk -F ' ' '{print $4}' | tr -d '[%]'")
 (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -n 1")
 (defpoll brightness_percent :interval "5s" "light")
-(defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
-(defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
+{{ if ne .chezmoi.hostname "sesa150507-beast" }}
+(defpoll wifi_signal :interval "1m" :initial `N/A` `nmcli -t -f SIGNAL,SSID,ACTIVE device wifi | awk -F':' '{if($3=="yes")print$1}'`)
+(defpoll wifi_ssid :interval "1m" :initial `N/A` `nmcli -t -f SIGNAL,SSID,ACTIVE device wifi | awk -F':' '{if($3=="yes")print$2}'`)
+{{ end }}
 (deflisten workspace "scripts/workspace")
 (deflisten appname "scripts/appname")
+(defpoll test_value :interval "1s" "date '+%S'")
 
 (defvar vol_reveal false)
 (defvar br_reveal false)
@@ -111,7 +113,10 @@
             (button
                 :onclick "${EWW_CMD} open --toggle audio_ctl"
                 :class "volume_icon"
-                "墳"))))
+                {volume_percent == "" ? "" :
+                    volume_percent == 0 ? "" :
+                        volume_percent < 51 ? "" :
+                            volume_percent < 76 ? "" : ""}))))
 
 (defwidget wifi []
   (eventbox
@@ -127,11 +132,14 @@
               :duration "350ms"
               (label
                   :class "module_essid"
-                  :text ESSID_WLAN))
+                  :text wifi_ssid))
         (button
             :class "module-wifi"
             :onclick "networkmanager_dmenu"
-            WLAN_ICON))))
+            {wifi_signal == "" ? "" :
+                wifi_signal < 26 ? "" :
+                    wifi_signal < 51 ? "" :
+                        wifi_signal < 76 ? "" : ""}))))
 
 (defwidget bat []
         (box
@@ -139,13 +147,13 @@
             :vexpand "false"
             :hexpand "false"
         (circular-progress
-            :value {EWW_BATTERY["BAT0"].capacity}
+            :value {EWW_BATTERY["BAT"].capacity}
             :class "batbar"
             :thickness 4
             (button
                 :onclick "${EWW_CMD} open --toggle system"
                 :class "iconbat"
-                :tooltip "battery on ${EWW_BATTERY["BAT0"].capacity}%"
+                :tooltip "battery on ${EWW_BATTERY["BAT"].capacity}%"
                 " "))))
 
 (defwidget mem []
@@ -235,7 +243,7 @@
         :halign "end"
         :class "right_modules"
     ;; (bright)
-    ;; (volume)
+    (volume)
 {{ if ne .chezmoi.hostname "sesa150507-beast" }}
     (wifi)
 {{ end }}
