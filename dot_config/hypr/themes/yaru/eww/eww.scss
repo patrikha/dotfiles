@@ -2,7 +2,7 @@
 Created by saimoom **/
 *{
     all: unset;
-    font-family: Phosphor-Bold, Iosevka;
+    font-family: Phosphor-Bold, "JetBrainsMono Nerd Font";
 }
 
 $background: rgba(00, 00, 00, 0.3);
@@ -75,7 +75,7 @@ tooltip label {
 .clock_time_class {
     color: $white;
     font-weight: bold;
-    margin: 0px 0px 0px 5px;
+    margin: 0px 0px 0px 4px;
 }
 
 .notif_button {
