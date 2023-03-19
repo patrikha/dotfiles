@@ -53,7 +53,7 @@ input {
     follow_mouse = 1
 
     touchpad {
-        natural_scroll = no
+        natural_scroll = yes
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
@@ -194,6 +194,11 @@ binde = , up, resizeactive, 0 -10
 binde = , down, resizeactive, 0 10
 bind = , escape, submap, reset
 submap = reset
+
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+bind = , XF86MonBrightnessUp, exec, light -T 1.1; notify-send 'brightness up'
+bind = , XF86MonBrightnessDown, exec, light -T 0.9; notify-send 'brightness down'
+{{ end }}
 
 # Applications
 bind = $mainMod, D, exec, nwg-drawer
