@@ -310,8 +310,8 @@
 {{ end }}
 {{ if eq .chezmoi.hostname "patrik-zenbook" }}
     ;; (sep)
-    (bat :status {EWW_BATTERY.BAT0.status}
-         :capacity {EWW_BATTERY.BAT0.capacity})
+    (bat :status {EWW_BATTERY.BATT.status}
+         :capacity {EWW_BATTERY.BATT.capacity})
 {{ end }}
     (mem :used_percent {round(EWW_RAM.used_mem_perc, 0)})
     (cpu :average_percent {round(EWW_CPU.avg, 0)})
