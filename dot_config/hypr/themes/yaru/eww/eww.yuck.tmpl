@@ -18,12 +18,12 @@
 (deflisten appname "scripts/appname")
 (defpoll test_value :interval "1s" "date '+%S'")
 
-(defvar vol_reveal false)
-(defvar br_reveal false)
-(defvar music_reveal false)
+(defvar power_reveal false)
 (defvar control_reveal false)
-(defvar wifi_rev false)
-(defvar time_rev false)
+(defvar br_reveal false)
+(defvar vol_reveal false)
+(defvar wifi_reveal false)
+(defvar time_reveal false)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -32,6 +32,51 @@
 (defwidget workspaces []
   (literal
     :content workspace))
+
+(defwidget power []
+  (eventbox
+    :onhover "${EWW_CMD} update power_reveal=true"
+    :onhoverlost "${EWW_CMD} update power_reveal=false"
+    (box
+      :orientation "h"
+      :class "module-wifi"
+      (revealer
+        :transition "slideright"
+        :reveal power_reveal
+        :duration "350ms"
+        (box
+          :vexpand "false"
+          :hexpand "false"
+          :orientation "h"
+          :space-evenly "false"
+          (button
+            ;; :class "app-button"
+            :onclick "swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2"
+            :tooltip "lock"
+            "")
+          (button
+            ;; :class "app-button"
+            :onclick "systemctl suspend-then-hibernate"
+            :tooltip "suspend and hibernate"
+            "")
+          (button
+            ;; :class "app-button"
+            :onclick "hyprctl dispatch exit"
+            :tooltip "logout"
+            "")
+          (button
+            ;; :class "app-button"
+            :onclick "systemctl reboot"
+            :tooltip "reboot"
+            "")
+          (button
+            ;; :class "app-button"
+            :onclick "systemctl poweroff"
+            :tooltip "poweroff"
+            "")))
+      (label
+        :text ""
+        :tooltip "power menu"))))
 
 (defwidget appnames []
   (eventbox
@@ -120,15 +165,15 @@
 
 (defwidget wifi []
   (eventbox
-    :onhover "${EWW_CMD} update wifi_rev=true"
-    :onhoverlost "${EWW_CMD} update wifi_rev=false"
+    :onhover "${EWW_CMD} update wifi_reveal=true"
+    :onhoverlost "${EWW_CMD} update wifi_reveal=false"
     (box
       :vexpand "false"
       :hexpand "false"
       :space-evenly "false"
       (revealer
         :transition "slideright"
-        :reveal wifi_rev
+        :reveal wifi_reveal
         :duration "350ms"
         (label
           :class "module_essid"
@@ -185,8 +230,8 @@
 
 (defwidget clock_module []
   (eventbox
-    :onhover "${EWW_CMD} update time_rev=true"
-    :onhoverlost "${EWW_CMD} update time_rev=false"
+    :onhover "${EWW_CMD} update time_reveal=true"
+    :onhoverlost "${EWW_CMD} update time_reveal=false"
     (box
       :class "module"
       :space-evenly "false"
@@ -196,7 +241,7 @@
         :text clock_time
         :class "clock_time_class")
         (revealer :transition "slideleft"
-          :reveal time_rev
+          :reveal time_reveal
           :duration "350ms"
           (button
             :class "clock_date_class"
@@ -272,6 +317,7 @@
     (cpu :average_percent {round(EWW_CPU.avg, 0)})
     ;; (sep)
     (clock_module)
+    ;; (power)
     ;; (notif_button)
 ))
 
