@@ -2,8 +2,7 @@
 Created by saimoom **/
 *{
     all: unset;
-    font-family: Phosphor;
-    font-family: Iosevka;
+    font-family: Phosphor-Bold, Iosevka;
 }
 
 $background: rgba(00, 00, 00, 0.3);
@@ -27,7 +26,7 @@ $white:     #FDFDFD;
     margin: 0px 0px 0px 0px;
 }
 .module {
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 10px;
     border-radius: 10px 10px 0px 10px;
 }
 
@@ -76,7 +75,7 @@ tooltip label {
 .clock_time_class {
     color: $white;
     font-weight: bold;
-    margin: 0px 20px 0px 5px;
+    margin: 0px 0px 0px 5px;
 }
 
 .notif_button {
@@ -124,6 +123,17 @@ tooltip label {
     font-size: 18;
     color: $blue;
     margin: 0px 10px 0px 5px;
+}
+
+.iconpower {
+    font-size: 18;
+    color: $blue;
+    margin: 0px 10px 0px 5px;
+}
+.module-power {
+    font-size: 18;
+    color: $blue;
+    margin: 0px 0px 0px 2px;
 }
 
 .iconlauncher {

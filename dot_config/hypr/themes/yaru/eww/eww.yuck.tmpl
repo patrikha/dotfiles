@@ -38,8 +38,10 @@
     :onhover "${EWW_CMD} update power_reveal=true"
     :onhoverlost "${EWW_CMD} update power_reveal=false"
     (box
-      :orientation "h"
-      :class "module-wifi"
+      :vexpand "false"
+      :hexpand "false"
+      :space-evenly "false"
+      :class "module-power"
       (revealer
         :transition "slideright"
         :reveal power_reveal
@@ -50,33 +52,34 @@
           :orientation "h"
           :space-evenly "false"
           (button
-            ;; :class "app-button"
+            :class "iconpower"
             :onclick "swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2"
             :tooltip "lock"
             "")
           (button
-            ;; :class "app-button"
+            :class "iconpower"
             :onclick "systemctl suspend-then-hibernate"
             :tooltip "suspend and hibernate"
             "")
           (button
-            ;; :class "app-button"
+            :class "iconpower"
             :onclick "hyprctl dispatch exit"
             :tooltip "logout"
             "")
           (button
-            ;; :class "app-button"
+            :class "iconpower"
             :onclick "systemctl reboot"
             :tooltip "reboot"
             "")
           (button
-            ;; :class "app-button"
+            :class "iconpower"
             :onclick "systemctl poweroff"
             :tooltip "poweroff"
             "")))
       (label
-        :text ""
-        :tooltip "power menu"))))
+        :class "iconpower"
+        :tooltip "power menu"
+        :text ""))))
 
 (defwidget appnames []
   (eventbox
@@ -317,7 +320,7 @@
     (cpu :average_percent {round(EWW_CPU.avg, 0)})
     ;; (sep)
     (clock_module)
-    ;; (power)
+    (power)
     ;; (notif_button)
 ))
 
