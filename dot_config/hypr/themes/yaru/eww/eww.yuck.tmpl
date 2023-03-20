@@ -4,7 +4,7 @@
 
 (defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
 (defpoll clock_time :interval "5s" "date '+\%H\%M'")
-(defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
+(defpoll clock_date :interval "1h" "date '+%Y-%m-%d %A (v%W)'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
 (defpoll volume_percent :interval "1s"  "amixer get Master | tail -n1 | awk -F ' ' '{print $4}' | tr -d '[%]'")
