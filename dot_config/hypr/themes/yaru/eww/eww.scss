@@ -2,11 +2,12 @@
 Created by saimoom **/
 *{
     all: unset;
-    font-family: Phosphor-Bold, "JetBrainsMono Nerd Font";
+    font-family: Phosphor-Bold,JetBrainsMono Nerd Font;
 }
 
 $background: rgba(00, 00, 00, 0.3);
 $widget-background: rgba(30, 30, 30, 0.4);
+$tools-background: rgba(00, 00, 00, 0.7);
 $shadow:    rgba(00, 00, 00, 0.4);
 $grey:      #606060;
 
@@ -51,7 +52,7 @@ $white:     #FDFDFD;
 
 /** tooltip!! **/
 tooltip.background {
-    background-color: $background;
+    background-color: $tools-background;
     font-size: 14;
     border-radius: 10px;
     color: $white;
@@ -74,6 +75,7 @@ tooltip label {
 }
 .clock_time_class {
     color: $white;
+    font-family: JetBrainsMono Nerd Font;
     font-weight: bold;
     margin: 0px 0px 0px 4px;
 }
@@ -89,7 +91,7 @@ tooltip label {
     border-radius: 2px;
     border-width: 2;
     border-style: none none solid solid;
-    border-color: $black;
+    border-color: $grey;
     min-height: 100px;
     min-width: 180px;
     margin: 10px 0px 10px 0px;
@@ -178,7 +180,7 @@ tooltip label {
 }
 
 .histogram {
-    background-color: $background;
+    background-color: $tools-background;
     border-radius: 16px;
     margin: 0px 10px 0px 3px;
 }
@@ -197,6 +199,7 @@ tooltip label {
 .works {
     font-size: 18px;
     font-weight: normal;
+    font-family: JetBrainsMono Nerd Font;
     margin: 0px 0px 0px 20px;
     background-color: rgba(00, 00, 00, 0.0);
 }
