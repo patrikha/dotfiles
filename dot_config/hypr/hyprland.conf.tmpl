@@ -137,6 +137,10 @@ $mainMod = SUPER
 $lock = swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%Y-%m-%d %A" --timestr "%H:%M"
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+binds {
+    workspace_back_and_forth = true
+}
+
 bind = $mainMod, return, exec, footclient
 bind = $mainMod SHIFT, Q, killactive,
 bind = $mainMod SHIFT, E, exit,
