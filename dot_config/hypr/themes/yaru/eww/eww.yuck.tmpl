@@ -199,7 +199,8 @@
         capacity < 10 ? "" :
           capacity < 25 ? "" :
             capacity < 50 ? "" :
-              capacity < 75 ? "" : ""})))
+              capacity < 75 ? "" : ""}
+      :tooltip "${status} ${capacity}%")))
 
 (defwidget mem [used_percent]
   (box
