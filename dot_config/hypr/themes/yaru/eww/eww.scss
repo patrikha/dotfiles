@@ -100,7 +100,7 @@ tooltip label {
 }
 .circularbar {
     color: $orange;
-    background-color: $widget-background;
+    background-color: $grey;
     border-radius: 10px;
 }
 .brightbar trough highlight {
@@ -229,7 +229,7 @@ tooltip label {
 
 // Calendar
 .cal {
-    background-color: $background;
+    background-color: $tools-background;
     font-family: mononoki Nerd Font;
     font-size: 18px;
     font-weight: normal;

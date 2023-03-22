@@ -166,6 +166,7 @@
             volume_percent < 51 ? "" :
               volume_percent < 76 ? "" : ""}))))
 
+{{ if ne .chezmoi.hostname "sesa150507-beast" }}
 (defwidget wifi []
   (eventbox
     :onhover "${EWW_CMD} update wifi_reveal=true"
@@ -188,7 +189,9 @@
           wifi_signal < 26 ? "" :
             wifi_signal < 51 ? "" :
               wifi_signal < 76 ? "" : ""}))))
+{{ end }}
 
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
 (defwidget bat [status capacity]
   (box
     :class "bat_module"
@@ -201,6 +204,7 @@
             capacity < 50 ? "" :
               capacity < 75 ? "" : ""}
       :tooltip "${status} ${capacity}%")))
+{{ end }}
 
 (defwidget mem [used_percent]
   (box
