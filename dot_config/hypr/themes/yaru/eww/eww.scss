@@ -9,6 +9,7 @@ $background: rgba(00, 00, 00, 0.3);
 $widget-background: rgba(30, 30, 30, 0.4);
 $tools-background: rgba(00, 00, 00, 0.7);
 $shadow:    rgba(00, 00, 00, 0.4);
+$transparent: rgba(00, 00, 00, 0);
 $grey:      #606060;
 
 $black:     #282A36;
@@ -22,8 +23,7 @@ $white:     #FDFDFD;
 
 /** General **/
 .bar_class {
-    background-color: $shadow;
-    border-radius: 0px 0px 8px 8px;
+    background-color: $transparent;
     margin: 0px 0px 0px 0px;
 }
 .module {
@@ -99,7 +99,7 @@ tooltip label {
     margin: 10px 0px 10px 0px;
 }
 .circularbar {
-    color: $orange;
+    color: $white;
     background-color: $grey;
     border-radius: 10px;
 }
@@ -107,36 +107,42 @@ tooltip label {
     background-image: linear-gradient(to right, $orange 30%, #f2cdcd 50%, $orange 100% *50);
     border-radius: 10px;
 }
-.volbar trough highlight {
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
+.volbar trough {
+    background: $transparent;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 10px;
+}
+.volbar trough highlight {
+    background-color: $white;
+    border-radius: 0px;
 }
 .volume_icon {
     font-size: 16;
-    color: $blue;
+    color: $white;
     margin: 0px 10px 0px 10px;
 }
 
 
 .module_essid {
     font-size: 16;
-    color: $blue;
+    color: $white;
     margin: 2px 10px 0px 0px;
 }
 .module-wifi {
     font-size: 18;
-    color: $blue;
+    color: $white;
     margin: 0px 10px 0px 5px;
 }
 
 .iconpower {
     font-size: 18;
-    color: $blue;
+    color: $white;
     margin: 0px 10px 0px 5px;
 }
 .module-power {
     font-size: 18;
-    color: $blue;
+    color: $white;
     margin: 0px 0px 0px 2px;
 }
 
@@ -150,7 +156,7 @@ tooltip label {
     font-size: 24px;
 }
 .circulartext {
-    color: $orange;
+    color: $white;
     font-size: 6;
     margin: 6px;
 }
@@ -198,7 +204,7 @@ tooltip label {
     margin: 0px 10px 0px 10px;
 }
 
-.works {
+.workspaces {
     font-size: 18px;
     font-weight: normal;
     font-family: JetBrainsMono Nerd Font;
@@ -206,24 +212,27 @@ tooltip label {
     background-color: rgba(00, 00, 00, 0.0);
 }
 
-.0, .00, .01, .02, .03, .04, .05, .06, .07, .08, .09,
-.000, .011, .022, .033, .044, .055, .066, .077, .088, .099 {
+.workspace-button {
     margin: 0px 7px 0px 0px;
+    min-width: 16px;
 }
 
-/* Unoccupied */
-.0 {
-    color: $grey;
+.workspace-active {
 }
 
 /* Occupied */
-.00, .01, .02, .03, .04, .05, .06, .07, .08, .09 {
+.w1, .w2, .w3, .w4, .w5, .w6, .w7, .w8, .w9, .w10 {
     color: $white;
+    border-width: 2px;
+    border-style: solid none solid none;
+    border-top-color: $transparent;
+    border-bottom-color: $transparent;
 }
 
 /* Focused */
-.000, .011, .022, .033, .044, .055, .066, .077, .088, .099{
-    color: $purple;
+.wa1, .wa2, .wa3, .wa4, .wa5, .wa6, .wa7, .wa8, .wa9, .wa10 {
+    border-style: solid none solid none;
+    border-bottom-color: $white;
 }
 
 

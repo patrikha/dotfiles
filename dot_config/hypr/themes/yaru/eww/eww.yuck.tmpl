@@ -14,7 +14,22 @@
 (defpoll wifi_signal :interval "1m" :initial `N/A` `nmcli -t -f SIGNAL,SSID,ACTIVE device wifi | awk -F':' '{if($3=="yes")print$1}'`)
 (defpoll wifi_ssid :interval "1m" :initial `N/A` `nmcli -t -f SIGNAL,SSID,ACTIVE device wifi | awk -F':' '{if($3=="yes")print$2}'`)
 {{ end }}
-(deflisten workspace "scripts/workspace")
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+(deflisten workspace0 "hyprland-workspaces DP-1")
+(deflisten workspace1 "hyprland-workspaces DP-2")
+(deflisten workspace2 "hyprland-workspaces DP-3")
+{{ else if eq .chezmoi.hostname "mac-linux" }}
+(deflisten workspace0 "hyprland-workspaces DP-1")
+(deflisten workspace1 "hyprland-workspaces HDMI-A-3")
+{{ else if eq .chezmoi.hostname "patrik-zenbook" }}
+(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+{{ else }}
+(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+{{ end }}
+
+(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+(deflisten workspace1 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[1].name\"`")
+
 (deflisten appname "scripts/appname")
 (defpoll test_value :interval "1s" "date '+%S'")
 
@@ -29,9 +44,32 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; widgets
 
-(defwidget workspaces []
-  (literal
-    :content workspace))
+(defwidget workspaces0 []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace0
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${replace(i.name, ':', '')}")))))
+
+(defwidget workspaces1 []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace1
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${replace(i.name, ':', '')}")))))
+
+(defwidget workspaces2 []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace1
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${replace(i.name, ':', '')}")))))
 
 (defwidget power []
   (eventbox
@@ -253,7 +291,9 @@
           :duration "350ms"
           (button
             :class "clock_date_class"
-            :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
+            :onclick "${EWW_CMD} open --toggle calendar"
+            (label
+              :text clock_date))))))
 
 (defwidget notif_button []
   (box
@@ -285,7 +325,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; define widget groups
 
-(defwidget left []
+(defwidget left0 []
   (box
     :orientation "h"
     :space-evenly false
@@ -293,7 +333,29 @@
     :class "left_modules"
     ;; (launcher)
     ;; (sep)
-    (workspaces)
+    (workspaces0)
+))
+
+(defwidget left1 []
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "start"
+    :class "left_modules"
+    ;; (launcher)
+    ;; (sep)
+    (workspaces1)
+))
+
+(defwidget left2 []
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "start"
+    :class "left_modules"
+    ;; (launcher)
+    ;; (sep)
+    (workspaces2)
 ))
 
 (defwidget center []
@@ -329,15 +391,32 @@
     ;; (notif_button)
 ))
 
-(defwidget bar_layout []
+(defwidget bar_layout0 []
   (centerbox
     :class "bar_class"
     :orientation "h"
-    (left)
+    (left0)
     (center)
     (right)
 ))
 
+(defwidget bar_layout1 []
+  (centerbox
+    :class "bar_class"
+    :orientation "h"
+    (left1)
+    (center)
+    (right)
+))
+
+(defwidget bar_layout2 []
+  (centerbox
+    :class "bar_class"
+    :orientation "h"
+    (left2)
+    (center)
+    (right)
+))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; windows
@@ -353,7 +432,7 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout))
+  (bar_layout0))
 
 (defwindow bar1
   :monitor 1
@@ -366,7 +445,7 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout))
+  (bar_layout1))
 
 (defwindow bar2
   :monitor 2
@@ -379,7 +458,7 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout))
+  (bar_layout1))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
