@@ -27,9 +27,6 @@
 (deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
 {{ end }}
 
-(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
-(deflisten workspace1 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[1].name\"`")
-
 (deflisten appname "scripts/appname")
 (defpoll test_value :interval "1s" "date '+%S'")
 
