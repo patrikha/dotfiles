@@ -8,7 +8,7 @@
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
 (defpoll volume_percent :interval "1s"  "amixer get Master | tail -n1 | awk -F ' ' '{print $4}' | tr -d '[%]'")
-(defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -n 1")
+(defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Mono:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -n 1")
 (defpoll brightness_percent :interval "5s" "light")
 {{ if ne .chezmoi.hostname "sesa150507-beast" }}
 (defpoll wifi_signal :interval "1m" :initial `N/A` `nmcli -t -f SIGNAL,SSID,ACTIVE device wifi | awk -F':' '{if($3=="yes")print$1}'`)
@@ -22,7 +22,7 @@
 (deflisten workspace0 "hyprland-workspaces DP-1")
 (deflisten workspace1 "hyprland-workspaces HDMI-A-3")
 {{ else if eq .chezmoi.hostname "patrik-zenbook" }}
-(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+(deflisten workspace0 "hyprland-workspaces eDP-1")
 {{ else }}
 (deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
 {{ end }}
@@ -41,28 +41,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; widgets
 
-(defwidget workspaces0 []
+(defwidget workspaces [monitor]
   (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
     (box :class "workspaces"
-      (for i in workspace0
-        (button
-          :onclick "hyprctl dispatch workspace ${i.id}"
-          :class "${i.class}"
-          "${replace(i.name, ':', '')}")))))
-
-(defwidget workspaces1 []
-  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
-    (box :class "workspaces"
-      (for i in workspace1
-        (button
-          :onclick "hyprctl dispatch workspace ${i.id}"
-          :class "${i.class}"
-          "${replace(i.name, ':', '')}")))))
-
-(defwidget workspaces2 []
-  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
-    (box :class "workspaces"
-      (for i in workspace1
+      (for i in monitor
         (button
           :onclick "hyprctl dispatch workspace ${i.id}"
           :class "${i.class}"
@@ -322,7 +304,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; define widget groups
 
-(defwidget left0 []
+(defwidget left [monitor]
   (box
     :orientation "h"
     :space-evenly false
@@ -330,29 +312,7 @@
     :class "left_modules"
     ;; (launcher)
     ;; (sep)
-    (workspaces0)
-))
-
-(defwidget left1 []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "start"
-    :class "left_modules"
-    ;; (launcher)
-    ;; (sep)
-    (workspaces1)
-))
-
-(defwidget left2 []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "start"
-    :class "left_modules"
-    ;; (launcher)
-    ;; (sep)
-    (workspaces2)
+    (workspaces :monitor monitor)
 ))
 
 (defwidget center []
@@ -388,29 +348,20 @@
     ;; (notif_button)
 ))
 
-(defwidget bar_layout0 []
+(defwidget bar_layout_primary [monitor]
   (centerbox
     :class "bar_class"
     :orientation "h"
-    (left0)
+    (left :monitor monitor)
     (center)
     (right)
 ))
 
-(defwidget bar_layout1 []
+(defwidget bar_layout_secondary [monitor]
   (centerbox
     :class "bar_class"
     :orientation "h"
-    (left1)
-    (center)
-    (right)
-))
-
-(defwidget bar_layout2 []
-  (centerbox
-    :class "bar_class"
-    :orientation "h"
-    (left2)
+    (left :monitor monitor)
     (center)
     (right)
 ))
@@ -429,8 +380,9 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout0))
+  (bar_layout_primary :monitor workspace0))
 
+{{ if eq .chezmoi.hostname "mac-linux" }}
 (defwindow bar1
   :monitor 1
   :exclusive false
@@ -442,7 +394,22 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout1))
+  (bar_layout_secondary :monitor workspace1))
+{{ end }}
+
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+(defwindow bar1
+  :monitor 1
+  :exclusive false
+  :geometry (geometry
+    :x "15px"
+    :y "0px"
+    :width "99%"
+    :height "25px"
+    :anchor "top center")
+  :stacking "fg"
+  :windowtype "dock"
+  (bar_layout_secondary :monitor workspace1))
 
 (defwindow bar2
   :monitor 2
@@ -455,7 +422,8 @@
     :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
-  (bar_layout1))
+  (bar_layout_secondary :monitor workspace2))
+{{ end }}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -482,12 +450,12 @@
         :vexpand "false"
         :hexpand "false"
         (label
-          :class "speaker_text"
+          :class "audio_text"
           :text "speaker"
           :valign "center"
           :halign "left")
         (box
-          :class "speaker_bar"
+          :class "audio_bar"
           :halign "center"
           :vexpand "false"
           :hexpand "false"
@@ -516,12 +484,12 @@
         :vexpand "false"
         :hexpand "false"
         (label
-          :class "mic_text"
+          :class "audio_text"
           :text "mic"
           :valign "center"
           :halign "left")
         (box
-          :class "mic_bar"
+          :class "audio_bar"
           :halign "center"
           :vexpand "false"
           :hexpand "false"

@@ -75,7 +75,7 @@ tooltip label {
     color: $white;
 }
 .clock_date_class label {
-    font-family: "JetBrains Nerd Font", monospace;
+    font-family: "JetBrainsMono Nerd Font", monospace;
 }
 .clock_time_class {
     color: $white;
@@ -91,7 +91,7 @@ tooltip label {
 }
 
 .histogram_bar {
-    color: $orange;
+    color: $white;
     border-radius: 2px;
     border-width: 2;
     border-style: none none solid solid;
@@ -214,7 +214,7 @@ tooltip label {
 }
 
 .workspaces label {
-    font-family: "JetBrains Nerd Font", monospace;
+    font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
 .workspace-button {
@@ -243,21 +243,22 @@ tooltip label {
 // Calendar
 .cal {
     background-color: $tools-background;
-    font-family: mononoki Nerd Font;
+    font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 18px;
     font-weight: normal;
     border-radius: 25px;
 
-.cal-in {
-    padding: 10px 10px 10px 10px;
-    color: $white;
+    .cal-in {
+        padding: 10px 10px 10px 10px;
+        color: $white;
 
-.cal {
-     &.highlight {
-          padding: 20px;
-      }
-      padding: 10px 10px 10px 10px;
-      margin-left: 10px;
+        .cal {
+            &.highlight {
+                padding: 20px;
+            }
+            padding: 10px 10px 10px 10px;
+            margin-left: 10px;
+        }
     }
   }
 }
@@ -314,69 +315,11 @@ calendar:indeterminate {
     background-color: $background;
     border-radius: 16px;
 }
-.speaker_icon {
-    background-size: cover;
-    background-image: url('images/speaker.png');
-    background-position: center;
-    min-height: 70px;
-    min-width: 75px;
-    margin: 10px 20px 5px 20px;
-    border-radius: 12px;
-}
-
-.speaker_text {
-    color: $blue;
+.audio_text {
+    color: $white;
     font-size : 26px;
     font-weight : bold;
     margin: 20px 0px 0px 0px;
-}
-
-.speaker_bar scale trough highlight {
-    all: unset;
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
-    border-radius: 24px;
-}
-.speaker_bar scale trough {
-    all: unset;
-    background-color: $widget-background;
-    box-shadow: 0 6px 5px 2px $shadow;
-    border-radius: 24px;
-    min-height: 13px;
-    min-width: 120px;
-    margin : 0px 0px 5px 0px;
-}
-
-
-.mic_icon {
-    background-size: cover;
-    background-image: url('images/mic.png');
-    background-position: center;
-    min-height: 70px;
-    min-width: 75px;
-    margin: 5px 20px 20px 20px;
-    border-radius: 12px;
-}
-
-.mic_text {
-    color: $blue;
-    font-size : 26px;
-    font-weight : bold;
-    margin: 0px 0px 0px 0px;
-}
-
-.mic_bar scale trough highlight {
-    all: unset;
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
-    border-radius: 24px;
-}
-.mic_bar scale trough {
-    all: unset;
-    box-shadow: 0 6px 5px 2px $shadow;
-    background-color: $widget-background;
-    border-radius: 24px;
-    min-height: 13px;
-    min-width: 120px;
-    margin : 0px 0px 20px 0px;
 }
 
 .audio_sep {
@@ -385,42 +328,35 @@ calendar:indeterminate {
     margin : 0px 0px 0px 0px;
 }
 
-// Music
-.music-player {
-    all: unset;
-    background-color: $widget-background;
-    padding: 0px 25px 0px 17px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 6px 6px $shadow;
-}
-
-.album_art {
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    margin: 2rem 1rem 1.5rem 1rem;
-    padding: 4rem;}
-
-.song {
-    font-weight: bold;
-    color: $white;
-    font-size : 1.2em;
-}
-.artist {
-    font-style: italic;
-    font-size: 1.1em;
-    color: $blue;
-    margin-top: -5px;
-}
-.btn_prev, .btn_play, .btn_next {
-  color: $purple;
-  font-size: 25px;
-}
-
-.metric-player  scale trough highlight {
-    all: unset;
+.audio_bar trough {
+    background: $transparent;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 10px;
-    background-color: $blue;
+}
+.audio_bar trough highlight {
+    background-color: $white;
+    border-radius: 0px;
+}
+
+.speaker_icon {
+    background-size: cover;
+    background-image: url('images/speaker.png');
+    background-position: center;
+    min-height: 48px;
+    min-width: 48px;
+    margin: 10px 20px 5px 20px;
+    border-radius: 12px;
+}
+
+.mic_icon {
+    background-size: cover;
+    background-image: url('images/mic.png');
+    background-position: center;
+    min-height: 48px;
+    min-width: 48px;
+    margin: 5px 20px 20px 20px;
+    border-radius: 12px;
 }
 
 // weather
@@ -429,7 +365,8 @@ calendar:indeterminate {
     background-color: $widget-background;
     border-radius: 12px;
     padding: 23px 37px 20px 37px;
-    box-shadow: 0px 0px 6px 6px $shadow;}
+    box-shadow: 0px 0px 6px 6px $shadow;
+}
 
 .iconweather {
     font-size : 44px;
