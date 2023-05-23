@@ -19,6 +19,13 @@ OR EDIT THIS ONE ACCORDING TO THE WIKI INSTRUCTIONS.
 # grim, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
 
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+env = WLR_NO_HARDWARE_CURSORS,1
+{{ end }}
+env = MOZ_ENABLE_WAYLAND,1
+env = GDK_BACKEND,wayland,x11
+env = QT_QPA_PLATFORM,wayland
+
 # See https://wiki.hyprland.org/Configuring/Monitors/
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 monitor = DP-1, 3840x2160, 1200x240, 1.5
