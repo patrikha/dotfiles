@@ -18,6 +18,7 @@ OR EDIT THIS ONE ACCORDING TO THE WIKI INSTRUCTIONS.
 # foot
 # grim, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
+# ulauncher
 
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 env = WLR_NO_HARDWARE_CURSORS,1
@@ -139,7 +140,7 @@ device:epic mouse V1 {
 # Example windowrule v2
 # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
+windowrulev2 = float,title:^(Ulauncher Preferences)$
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
@@ -215,7 +216,8 @@ bind = , XF86MonBrightnessDown, exec, light -T 0.9; notify-send 'brightness down
 {{ end }}
 
 # Applications
-bind = $mainMod, D, exec, nwg-drawer
+exec-once = ulauncher
+bind = $mainMod, D, exec, ulauncher-toggle
 bind = $mainMod, E, exec, pcmanfm
 bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 
