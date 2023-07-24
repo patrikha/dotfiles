@@ -24,7 +24,7 @@ font=Hack:size=12
 {{ else if eq .chezmoi.hostname "mac-linux" }}
 font=Hack Nerd Font:size=12
 {{ else }}
-font=Hack Nerd Font:size=8
+font=Hack Nerd Font:size=14
 {{ end }}
 
 # initial-window-size-pixels=700x500  # Or,
@@ -77,6 +77,8 @@ font=Hack Nerd Font:size=8
 # alpha=1.0
 # foreground=dcdccc
 # background=111111
+foreground=FFFEFE
+background=002451
 
 ## Normal/regular colors (color palette 0-7)
 # regular0=222222  # black
@@ -87,6 +89,14 @@ font=Hack Nerd Font:size=8
 # regular5=dc8cc3  # magenta
 # regular6=93e0e3  # cyan
 # regular7=dcdccc  # white
+regular0=000000  # Black (Host)
+regular1=FF9DA3  # Red (Syntax string)
+regular2=D1F1A9  # Green (Command)
+regular3=FFEEAD  # Yellow (Command second)
+regular4=BBDAFF  # Blue (Path)
+regular5=EBBBFF  # Magenta (Syntax var)
+regular6=99FFFF  # Cyan (Prompt)
+regular7=FFFEFE  # White
 
 ## Bright colors (color palette 8-15)
 # bright0=666666   # bright black
@@ -97,6 +107,14 @@ font=Hack Nerd Font:size=8
 # bright5=fcace3   # bright magenta
 # bright6=b3ffff   # bright cyan
 # bright7=ffffff   # bright white
+bright0=000000   # Bright Black
+bright1=FF9CA3   # Bright Red (Command error)
+bright2=D0F0A8   # Bright Green (Exec)
+bright3=FFEDAC   # Bright Yellow
+bright4=BADAFF   # Bright Blue (Folder)
+bright5=EBBAFF   # Bright Magenta
+bright6=99FFFF   # Bright Cyan
+bright7=FFFEFE   # Bright White
 
 ## dimmed colors (see foot.ini(5) man page)
 # dim0=<not set>
