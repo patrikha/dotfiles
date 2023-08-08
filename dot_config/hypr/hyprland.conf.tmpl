@@ -13,6 +13,7 @@ OR EDIT THIS ONE ACCORDING TO THE WIKI INSTRUCTIONS.
 # Dependencies
 # hyprpaper
 # hyprland-workspaces
+# hyprland-monitor-attached
 # swawlock
 # swayidle
 # foot
@@ -26,6 +27,7 @@ env = WLR_NO_HARDWARE_CURSORS,1
 env = MOZ_ENABLE_WAYLAND,1
 env = GDK_BACKEND,wayland,x11
 env = QT_QPA_PLATFORM,wayland
+env = GTK_THEME,Yaru
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
@@ -240,4 +242,7 @@ exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CUR
 
 # Source theme
 exec-once = hyprpaper
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+# exec-once = /usr/bin/hyprland-monitor-attached PATH_TO_ATTACHED_SHCRIPT.sh [PATH_TO_DETACHED_SHCRIPT.sh]
+{{ end }}
 source = ~/.config/hypr/themes/yaru/theme.conf
