@@ -28,7 +28,11 @@
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
+{{ if eq .chezmoi.hostname "mac-linux" }}
+                    :height 120
+{{ else }}
                     :height 140
+{{ end }}
                     :weight 'regular
                     :width 'normal)
 
