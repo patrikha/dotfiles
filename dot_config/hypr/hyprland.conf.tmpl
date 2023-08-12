@@ -146,7 +146,8 @@ windowrulev2 = float,title:^(Ulauncher Preferences)$
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
-$lock = 'swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%Y-%m-%d %A" --timestr "%H:%M"'
+$lock = swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%Y-%m-%d %A" --timestr "%H:%M"
+$lockstring = '$lock'
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 binds {
@@ -225,7 +226,7 @@ bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 
 # Autostart
 exec-once = foot --server
-exec-once = swayidle -w timeout 300 $lock timeout 600 'hyprctl dispatch dpms off *' resume 'hyprctl dispatch dpms on *' before-sleep $lock
+exec-once = swayidle -w timeout 600 $lockstring timeout 1800 'hyprctl dispatch dpms off *' resume 'hyprctl dispatch dpms on *' before-sleep $lockstring
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 exec-once = hyprland-workspaces DP-1
 exec-once = hyprland-workspaces DP-2
