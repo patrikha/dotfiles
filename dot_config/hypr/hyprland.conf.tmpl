@@ -140,8 +140,9 @@ device:epic mouse V1 {
 # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 windowrulev2 = float,title:^(Ulauncher Preferences)$
-windowrulev2 = nofullscreenrequest,class:^(libreoffice.*)$
-windowrulev2 = nofullscreenrequest,class:^(org.remmina.Remmina)$
+windowrulev2 = nomaximizerequest,class:^(libreoffice.*)$
+windowrulev2 = nomaximizerequest,class:^(org.remmina.Remmina)$
+windowrulev2 = maximize,class:^(Microsoft-edge)$
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
