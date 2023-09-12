@@ -29,6 +29,7 @@
     flycheck
     exec-path-from-shell
     find-file-in-repository
+    all-the-icons
     doom-modeline
     fringe-helper
     bm
@@ -70,8 +71,6 @@
     tide
     ;; C/C++ lang
     ;; C#
-    csharp-mode
-    omnisharp
     ;; Thrift
     thrift
     ;; Docker lang
