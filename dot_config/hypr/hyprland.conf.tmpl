@@ -229,7 +229,7 @@ bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 
 # Autostart
 exec-once = foot --server
-exec-once = swayidle -w timeout 600 $lockstring timeout 1800 'hyprctl dispatch dpms off *' resume 'hyprctl dispatch dpms on *' before-sleep $lockstring
+exec-once = swayidle -w timeout 600 $lockstring
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 exec-once = hyprland-workspaces DP-1
 exec-once = hyprland-workspaces DP-2
