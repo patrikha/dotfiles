@@ -222,7 +222,7 @@ bind = , XF86MonBrightnessDown, exec, light -T 0.9; notify-send 'brightness down
 {{ end }}
 
 # Applications
-exec-once = ulauncher
+exec-once = ulauncher --no-window-shadow
 bind = $mainMod, D, exec, ulauncher-toggle
 bind = $mainMod, E, exec, pcmanfm
 bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
