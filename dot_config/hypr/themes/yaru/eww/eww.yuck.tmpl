@@ -3,7 +3,7 @@
 ;; (include "notifications.yuck")
 
 (defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
-(defpoll clock_time :interval "5s" "date '+\%H\%M'")
+(defpoll clock_time :interval "5s" "date '+\%H:\%M'")
 (defpoll clock_date :interval "1h" "date '+%Y-%m-%d %A (v%W)'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
@@ -322,6 +322,7 @@
     :halign "center"
     :class "center_modules"
     ;;(appnames)
+    (clock_module)
 ))
 
 (defwidget right []
@@ -343,7 +344,6 @@
     (mem :used_percent {round(EWW_RAM.used_mem_perc, 0)})
     (cpu :average_percent {round(EWW_CPU.avg, 0)})
     ;; (sep)
-    (clock_module)
     (power)
     ;; (notif_button)
 ))
@@ -609,7 +609,7 @@
   :geometry (geometry
     :x "20"
     :y "25"
-    :anchor "top right"
+    :anchor "top center"
     :width "270px"
     :height "60px")
   (cal))
