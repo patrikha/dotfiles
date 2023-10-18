@@ -22,8 +22,12 @@ OR EDIT THIS ONE ACCORDING TO THE WIKI INSTRUCTIONS.
 # ulauncher
 
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
+env = LIBVA_DRIVER_NAME,nvidia
+env = GBM_BACKEND,nvida-drm
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 {{ end }}
+env = XDG_SESSION_TYPE,wayland
 env = MOZ_ENABLE_WAYLAND,1
 env = GDK_BACKEND,wayland
 env = QT_QPA_PLATFORM,wayland
