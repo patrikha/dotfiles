@@ -8,6 +8,7 @@
 (require 'init-golden-ratio)
 
 ;; ------------------------------------------------------- [ programming modes ]
+(require 'init-company)
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-tree-sitter)
