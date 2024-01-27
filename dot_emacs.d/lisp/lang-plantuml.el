@@ -10,4 +10,10 @@
   (setq plantuml-default-exec-mode 'jar)
   (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
 
+(use-package flycheck-plantuml
+  :ensure t
+  :after (flycheck)
+  :config
+  (flycheck-plantuml-setup))
+
 (provide 'lang-plantuml)
