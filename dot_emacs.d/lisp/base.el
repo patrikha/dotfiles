@@ -5,6 +5,7 @@
 ;; ----------------------------------------------------------- [ general modes ]
 (require 'init-dirvish)
 (require 'init-ivy)
+(require 'init-golden-ratio)
 
 ;; ------------------------------------------------------- [ programming modes ]
 (require 'init-projectile)
