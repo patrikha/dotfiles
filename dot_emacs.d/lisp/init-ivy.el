@@ -21,10 +21,13 @@
         '((swiper . ivy--regex-plus)
           (t      . ivy--regex-fuzzy))))
 
+(use-package find-file-in-repository
+  :ensure t)
+
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(Global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
