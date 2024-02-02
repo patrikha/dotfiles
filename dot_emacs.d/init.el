@@ -81,7 +81,8 @@
    (json-mode . json-ts-mode)
    (css-mode . css-ts-mode)
    (python-mode . python-ts-mode)
-   (rust-mode . rust-ts-mode)))
+   (rust-mode . rust-ts-mode)
+   (bash-mode . bash-ts-mode)))
 
 (add-to-list 'auto-mode-alist '("\\.msbuild\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.csproj\\'" . xml-mode))

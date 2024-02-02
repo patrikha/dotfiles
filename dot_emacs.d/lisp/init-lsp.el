@@ -14,6 +14,7 @@
   (rust-ts-mode . lsp-deferred)
   (json-ts-mode . lsp-deferred)
   (yaml-ts-mode . lsp-deferred)
+  (bash-ts-mode . lsp-deferred)
   :init
   (setq-default indent-tabs-mode nil)
   (setq lsp-enable-snippet nil))

@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Created by Patrik Hartlén
 
+;; Following packages installed but not covered by lang file
+;; yay -S tree-sitter-bash
+
 (use-package tree-sitter
   :ensure t
   :config
