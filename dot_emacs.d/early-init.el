@@ -21,7 +21,7 @@
       backup-inhibited t
       auto-save-default nil
       tab-width 4
-      uniquify-buffer-name-style 'forward
+      uniquify-buffer-name-style 'post-forward
       uniquify-min-dir-content 3)
 
 (setq-default truncate-lines t)
