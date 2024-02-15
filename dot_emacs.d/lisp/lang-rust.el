@@ -1,4 +1,4 @@
-;; lang-tust.el --- Rust language mode
+;; lang-rust.el --- Rust language mode
 ;;; Commentary:
 ;;; Created by Patrik Hartlén
 

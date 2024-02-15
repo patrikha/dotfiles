@@ -19,6 +19,7 @@
 ;; ---------------------------------------------------------- [ language modes ]
 (require 'lang-python)
 (require 'lang-rust)
+(require 'lang-go)
 (require 'lang-docker)
 (require 'lang-json)
 (require 'lang-yaml)

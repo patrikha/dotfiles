@@ -12,6 +12,7 @@
   :hook
   (python-ts-mode . lsp-deferred)
   (rust-ts-mode . lsp-deferred)
+  (go-ts-mode . lsp-deferred)
   (json-ts-mode . lsp-deferred)
   (yaml-ts-mode . lsp-deferred)
   (bash-ts-mode . lsp-deferred)
