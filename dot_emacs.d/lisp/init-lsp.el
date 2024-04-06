@@ -27,6 +27,8 @@
   :config
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  :bind
+  ("C-h ." . lsp-ui-doc-focus-frame)
   )
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
