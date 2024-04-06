@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Created by Patrik Hartlén
 
-(use-package dockerfile-mode
+(use-package dockerfile-ts-mode
   :ensure t)
 
 (provide 'lang-docker)
