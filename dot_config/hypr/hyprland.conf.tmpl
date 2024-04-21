@@ -149,6 +149,8 @@ windowrulev2 = nomaximizerequest,class:^(org.remmina.Remmina)$
 windowrulev2 = maximize,class:^(Microsoft-edge)$
 windowrulev2 = stayfocused, class:(ulauncher)
 
+# set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for footclient
+windowrule = opacity 0.95 override 0.8 override 1.0 override,^(footclient)$
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
 $lock = swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%Y-%m-%d %A" --timestr "%H:%M"
@@ -177,6 +179,11 @@ bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
 bind = $mainMod, up, movefocus, u
 bind = $mainMod, down, movefocus, d
+# Move window with mainMod + arrow keys
+bind = $mainMod ALT_L, left, movewindow, l
+bind = $mainMod ALT_L, right, movewindow, r
+bind = $mainMod ALT_L, up, movewindow, u
+bind = $mainMod ALT_L, down, movewindow, d
 
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
@@ -233,7 +240,9 @@ bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 
 # Autostart
 exec-once = foot --server
+{{ if ne .chezmoi.hostname "mac-linux" }}
 exec-once = swayidle -w timeout 600 $lockstring
+{{ end }}
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 exec-once = hyprland-workspaces DP-1
 exec-once = hyprland-workspaces DP-2
