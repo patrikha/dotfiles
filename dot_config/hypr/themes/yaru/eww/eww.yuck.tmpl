@@ -300,6 +300,10 @@
     :visible "true"
     :width "150"))
 
+(defwidget tray []
+  (box
+    (systray
+      :orientation "h")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; define widget groups
@@ -346,6 +350,7 @@
     ;; (sep)
     (power)
     ;; (notif_button)
+    (tray)
 ))
 
 (defwidget bar_layout_primary [monitor]
