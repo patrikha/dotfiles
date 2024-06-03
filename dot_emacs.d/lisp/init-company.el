@@ -3,6 +3,7 @@
 ;;; Created by Patrik Hartlén
 
 (use-package company
+  :ensure t
   :after lsp-mode
   :hook (prog-mode . company-mode)
   :bind (:map company-active-map
