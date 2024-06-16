@@ -23,4 +23,10 @@
   :init
   (marginalia-mode))
 
+(use-package orderless
+  :after vertico
+  :ensure t
+  :config
+  (setq completion-styles '(orderless basic)))
+
 (provide 'init-vertico)

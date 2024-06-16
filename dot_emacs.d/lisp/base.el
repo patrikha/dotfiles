@@ -4,7 +4,8 @@
 
 ;; ----------------------------------------------------------- [ general modes ]
 (require 'init-dirvish)
-(require 'init-ivy)
+(require 'init-vertico)
+(require 'init-consult)
 (require 'init-golden-ratio)
 
 ;; ------------------------------------------------------- [ programming modes ]

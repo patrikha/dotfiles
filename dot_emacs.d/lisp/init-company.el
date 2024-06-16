@@ -14,4 +14,8 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 (provide 'init-company)
