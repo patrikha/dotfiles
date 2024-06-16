@@ -6,6 +6,7 @@
 (require 'init-dirvish)
 (require 'init-vertico)
 (require 'init-consult)
+(require 'init-embark)
 (require 'init-golden-ratio)
 
 ;; ------------------------------------------------------- [ programming modes ]
