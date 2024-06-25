@@ -56,6 +56,7 @@
   :bind ("M-y" . browse-kill-ring))
 
 (use-package ace-jump-mode
+  :ensure t
   :chords (("jj" . ace-jump-char-mode)
            ("jk" . ace-jump-word-mode)
            ("jl" . ace-jump-line-mode)))
