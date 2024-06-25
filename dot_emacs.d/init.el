@@ -5,7 +5,10 @@
 ;;; Code:
 
 ;; ---------------------------------------------------------------- [ packages ]
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; ---------------------------------------------------------- [ style settings ]
 (unless (display-graphic-p)
@@ -51,6 +54,11 @@
 (use-package browse-kill-ring
   :ensure t
   :bind ("M-y" . browse-kill-ring))
+
+(use-package ace-jump-mode
+  :chords (("jj" . ace-jump-char-mode)
+           ("jk" . ace-jump-word-mode)
+           ("jl" . ace-jump-line-mode)))
 
 ;; ----------------------------------------------------------------- [ visuals ]
 (use-package smartparens
