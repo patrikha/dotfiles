@@ -11,6 +11,10 @@
 (unless (display-graphic-p)
   (menu-bar-mode -1))
 
+(use-package use-package-chords
+  :ensure t
+  :config (key-chord-mode 1))
+
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :config
