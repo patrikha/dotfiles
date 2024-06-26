@@ -32,6 +32,5 @@
                                     orderless-literal
                                     orderless-regexp
                                     orderless-initialism
-                                    orderless-prefixes
-                                    orderless-infixes)))
+                                    orderless-prefixes)))
 (provide 'init-vertico)
