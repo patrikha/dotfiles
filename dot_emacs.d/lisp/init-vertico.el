@@ -27,6 +27,11 @@
   :after vertico
   :ensure t
   :config
-  (setq completion-styles '(orderless basic)))
-
+  (setq completion-styles '(orderless basic))
+  (setq orderless-matching-styles '(orderless-flex
+                                    orderless-literal
+                                    orderless-regexp
+                                    orderless-initialism
+                                    orderless-prefixes
+                                    orderless-infixes)))
 (provide 'init-vertico)
