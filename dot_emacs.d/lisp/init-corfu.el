@@ -22,7 +22,11 @@
   :init
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-;;(add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+;; add support for terminal
+(use-package corfu-terminal
+  :ensure t)
+(unless (window-system)
+  (corfu-terminal-mode +1))
 
 ;; Optionally:
 (setq nerd-icons-corfu-mapping
@@ -33,6 +37,5 @@
         ;; Remember to add an entry for `t', the library uses that as default.
 
 ;; The Custom interface is also supported for tuning the variable above.
-
 
 (provide 'init-corfu)
