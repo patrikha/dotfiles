@@ -12,4 +12,9 @@
          ;; opened file.
          ("M-s M-b" . consult-buffer)))
 
+(use-package embark-consult
+  :ensure t
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 (provide 'init-consult)
