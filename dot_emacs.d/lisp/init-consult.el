@@ -1,7 +1,8 @@
 (use-package consult
   :ensure t
   :bind (;; A recursive grep
-         ("M-s M-g" . consult-grep)
+         ("M-s M-g" . consult-git-grep)
+         ("M-s M-r" . consult-ripgrep)
          ;; Search for files names recursively
          ("M-s M-f" . consult-find)
          ;; Search through the outline (headings) of the file
