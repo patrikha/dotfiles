@@ -8,6 +8,7 @@
 # grim, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
 # ulauncher
+# dunst
 
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 env = LIBVA_DRIVER_NAME,nvidia
@@ -222,6 +223,7 @@ bind = , print, exec, grim - | wl-copy
 bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 
 # Autostart
+exec-once = dunst
 exec-once = foot --server
 {{ if ne .chezmoi.hostname "mac-linux" }}
 exec-once = swayidle -w timeout 600 $lockstring
