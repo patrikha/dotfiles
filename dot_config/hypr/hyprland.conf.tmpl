@@ -2,8 +2,8 @@
 # hyprpaper
 # hyprland-workspaces
 # hyprland-monitor-attached
-# swawlock
-# swayidle
+# hyprlock
+# hypridle
 # foot
 # grim, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
@@ -136,8 +136,6 @@ windowrulev2 = stayfocused, class:(ulauncher)
 windowrule = opacity 0.95 override 0.8 override 1.0 override,^(footclient)$
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
-$lock = swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%Y-%m-%d %A" --timestr "%H:%M"
-$lockstring = '$lock'
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 binds {
@@ -156,7 +154,7 @@ bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 bind = $mainMod, F, fullscreen, 1 # toggle maximize
 bind = $mainMod SHIFT, F, fullscreen # toggle fullscreen
-bind = $mainMod, pause, exec, $lock
+bind = $mainMod, pause, exec, hyprlock
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
@@ -225,9 +223,7 @@ bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 # Autostart
 exec-once = dunst
 exec-once = foot --server
-{{ if ne .chezmoi.hostname "mac-linux" }}
-exec-once = swayidle -w timeout 600 $lockstring
-{{ end }}
+exec-once = hypridle
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
 exec-once = hyprland-workspaces DP-1
 exec-once = hyprland-workspaces DP-2
