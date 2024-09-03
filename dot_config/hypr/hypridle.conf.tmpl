@@ -38,6 +38,7 @@ listener {
     on-resume = hyprctl dispatch dpms on
 }
 
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
 # Suspend
 listener {
     # SUSPEND TIMEOUT
@@ -45,3 +46,4 @@ listener {
     #SUSPEND ONTIMEOUT
     on-timeout = systemctl suspend
 }
+{{ end }}
