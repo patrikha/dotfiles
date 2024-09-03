@@ -10,11 +10,7 @@
 # ulauncher
 # dunst
 
-{{ if eq .chezmoi.hostname "sesa150507-beast" }}
-env = LIBVA_DRIVER_NAME,nvidia
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-env = WLR_NO_HARDWARE_CURSORS,1
-{{ end }}
+
 env = XDG_SESSION_TYPE,wayland
 env = MOZ_ENABLE_WAYLAND,1
 env = GDK_BACKEND,wayland
@@ -35,8 +31,6 @@ monitor = HDMI-A-3, 1920x1200, 0x0, 1
 monitor = HDMI-A-3, transform, 1
 {{ else if eq .chezmoi.hostname "patrik-zenbook" }}
 monitor = , preferred, auto, 1
-{{ else }}
-monitor= ,preferred,auto,auto
 {{ end }}
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -208,10 +202,10 @@ binde = , down, resizeactive, 0 10
 bind = , escape, submap, reset
 submap = reset
 
-{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+
 bind = , XF86MonBrightnessUp, exec, light -T 1.1; notify-send 'brightness up'
 bind = , XF86MonBrightnessDown, exec, light -T 0.9; notify-send 'brightness down'
-{{ end }}
+
 
 # Applications
 exec-once = ulauncher --no-window-shadow
@@ -223,24 +217,19 @@ bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
 # Autostart
 exec-once = dunst
 exec-once = foot --server
+
 exec-once = hypridle
-{{ if eq .chezmoi.hostname "sesa150507-beast" }}
-exec-once = hyprland-workspaces DP-1
-exec-once = hyprland-workspaces DP-2
-exec-once = hyprland-workspaces DP-3
-{{ else if eq .chezmoi.hostname "mac-linux" }}
-exec-once = hyprland-workspaces DP-1
-exec-once = hyprland-workspaces HDMI-A-3
-{{ else if eq .chezmoi.hostname "patrik-zenbook" }}
+
 exec-once = hyprland-workspaces `hyprctl monitors -j | jq -r ".[0].name"`
-{{ else }}
-exec-once = hyprland-workspaces `hyprctl monitors -j | jq -r ".[0].name"`
-{{ end }}
+
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # Source theme
 exec-once = hyprpaper
-{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+
 # exec-once = /usr/bin/hyprland-monitor-attached PATH_TO_ATTACHED_SHCRIPT.sh [PATH_TO_DETACHED_SHCRIPT.sh]
-{{ end }}
+
+# start waybar
+exec-once = ~/.config/waybar/launch.sh
+
 source = ~/.config/hypr/themes/yaru/theme.conf
