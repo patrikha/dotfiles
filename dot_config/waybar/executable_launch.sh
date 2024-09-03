@@ -25,16 +25,16 @@ sleep 0.5
 # ----------------------------------------------------- 
 # Default theme: /THEMEFOLDER;/VARIATION
 # ----------------------------------------------------- 
-themestyle="/ml4w-blur;/ml4w-blur/white"
+themestyle="/ml4w;/ml4w/light"
 
-# ----------------------------------------------------- 
-# Get current theme information from ~/.config/ml4w/settings/waybar-theme.sh
-# ----------------------------------------------------- 
-if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
-    themestyle=$(cat ~/.config/ml4w/settings/waybar-theme.sh)
+# -----------------------------------------------------
+# Get current theme information from ~/.config/waybar/waybar-theme.sh
+# -----------------------------------------------------
+if [ -f ~/.config/waybar/waybar-theme.sh ]; then
+    themestyle=$(cat ~/.config/waybar/waybar-theme.sh)
 else
-    touch ~/.config/ml4w/settings/waybar-theme.sh
-    echo "$themestyle" > ~/.config/ml4w/settings/waybar-theme.sh
+    touch ~/.config/waybar/waybar-theme.sh
+    echo "$themestyle" > ~/.config/waybar/waybar-theme.sh
 fi
 
 IFS=';' read -ra arrThemes <<< "$themestyle"
