@@ -64,10 +64,10 @@
   },
 
   // Empty
-  "custom/tools": {
-    "format": "",
-    "tooltip-format": "Tools"
-  },
+  // "custom/tools": {
+  //   "format": "",
+  //   "tooltip-format": "Tools"
+  // },
 
   // Cliphist
   "custom/cliphist": {
