@@ -5,6 +5,10 @@
   (corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
   (corfu-preselect 'prompt) ;; Always preselect the prompt
   (tab-always-indent 'complete)
+  (completion-cycle-threshold nil) ;; Always show candidates in menu
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.25)
   ;; Use TAB for cycling, default is `corfu-complete'.
   :bind
   (:map corfu-map
