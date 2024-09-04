@@ -1,0 +1,167 @@
+// __        __          _
+// \ \      / /_ _ _   _| |__   __ _ _ __
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__|
+//   \ V  V / (_| | |_| | |_) | (_| | |
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|
+//                 |___/
+//
+// by Stephan Raabe (2023)
+// -----------------------------------------------------
+//
+[
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "layer": "top",
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+    "output": "DP-1",
+{{ else if eq .chezmoi.hostname "mac-linux" }}
+    "output": "DP-1",
+{{ end }}
+    // Load Modules
+    "include": [
+        "~/.config/waybar/waybar-quicklinks.json",
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "group/links",
+        // "group/settings",
+        // "wlr/taskbar",
+        "group/quicklinks",
+        "hyprland/window",
+        "custom/empty"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "custom/updates",
+        "pulseaudio",
+        // "backlight",
+        "bluetooth",
+        // "battery",
+        "network",
+        "group/hardware",
+        "group/tools",
+        "tray",
+        "custom/exit",
+        // "custom/ml4w-welcome",
+        "clock"
+    ]
+
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+},
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "layer": "top",
+    "margin-left": 14,
+    "margin-right": 0,
+    "spacing": 0,
+    "output": "DP-2",
+
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/empty"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "clock"
+    ]
+},
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "layer": "top",
+    "margin-left": 14,
+    "margin-right": 0,
+    "spacing": 0,
+    "output": "DP-3",
+
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/empty"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "clock"
+    ]
+}
+{{ else if eq .chezmoi.hostname "mac-linux" }}
+},
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "layer": "top",
+    "margin-left": 14,
+    "margin-right": 0,
+    "spacing": 0,
+    "output": "HDMI-A-3",
+
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/empty"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "clock"
+    ]
+}
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+}
+{{ end }}
+]
