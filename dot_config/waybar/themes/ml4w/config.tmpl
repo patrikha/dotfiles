@@ -49,9 +49,11 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        // "backlight",
         "bluetooth",
-        // "battery",
+{{ if eq .chezmoi.hostname "patrik-zenbook" }}
+        "backlight",
+        "battery",
+{{ end }}
         "network",
         "group/hardware",
         "group/tools",
