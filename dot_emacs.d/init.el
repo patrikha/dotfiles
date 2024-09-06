@@ -11,9 +11,6 @@
 (package-initialize)
 
 ;; ---------------------------------------------------------- [ style settings ]
-(unless (display-graphic-p)
-  (menu-bar-mode -1))
-
 (use-package use-package-chords
   :ensure t
   :config (key-chord-mode 1))

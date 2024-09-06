@@ -6,10 +6,11 @@
 
 ;; -------------------------------------------------------- [ initial settings ]
 (windmove-default-keybindings 'shift)
-(show-paren-mode t)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (column-number-mode t)
 (global-display-line-numbers-mode t)
+(show-paren-mode t)
 (define-key global-map [remap list-buffers] 'buffer-menu-other-window)
 (setq ring-bell-function 'ignore
       inhibit-splash-screen t
