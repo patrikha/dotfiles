@@ -13,7 +13,9 @@
          ;; opened file.
          ("M-s M-b" . consult-buffer)
          ;; Replace default goto line
-         ("M-g M-g" . consult-goto-line)))
+         ("M-g M-g" . consult-goto-line)
+         ;; Replace yank-killring
+         ("M-y" . consult-yank-from-kill-ring)))
 
 (use-package embark-consult
   :ensure t
