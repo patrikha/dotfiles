@@ -11,7 +11,9 @@
          ("M-s M-l" . consult-line)
          ;; Switch to another buffer, or bookmarked file, or recently
          ;; opened file.
-         ("M-s M-b" . consult-buffer)))
+         ("M-s M-b" . consult-buffer)
+         ;; Replace default goto line
+         ("M-g M-g" . consult-goto-line)))
 
 (use-package embark-consult
   :ensure t
