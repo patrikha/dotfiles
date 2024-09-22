@@ -58,6 +58,8 @@
            ("jk" . ace-jump-word-mode)
            ("jl" . ace-jump-line-mode)))
 
+(global-set-key (kbd "M-s /") 'multi-occur-in-matching-buffers)
+
 ;; ----------------------------------------------------------------- [ visuals ]
 (use-package smartparens
   :ensure t
