@@ -26,5 +26,6 @@
 (require 'lang-json)
 (require 'lang-yaml)
 (require 'lang-plantuml)
+(require 'lang-typst)
 
 (provide 'base)

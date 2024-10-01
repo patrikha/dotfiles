@@ -1,3 +1,7 @@
+;; init-vertico.el --- Initialize vertico for interactive completion
+;;; Commentary:
+;;; Created by Patrik Hartlén
+
 (use-package vertico
   :ensure t
   :bind (:map vertico-map

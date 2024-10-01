@@ -1,3 +1,7 @@
+;; init-consult.el --- Initialize consult, consulting completion read
+;;; Commentary:
+;;; Created by Patrik Hartlén
+
 (use-package consult
   :ensure t
   :bind (;; A recursive grep

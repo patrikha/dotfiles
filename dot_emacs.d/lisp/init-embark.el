@@ -1,3 +1,7 @@
+;; init-embark.el --- Initialize emabark, mini-buffer actions
+;;; Commentary:
+;;; Created by Patrik Hartlén
+
 (use-package embark
   :ensure t
   :bind (("C-." . embark-act)

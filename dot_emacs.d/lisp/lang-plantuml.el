@@ -4,6 +4,7 @@
 
 ;; M-x plantuml-download-jar<RET>
 ;; sudo pacman -S graphviz
+
 (use-package plantuml-mode
   :ensure t
   :init

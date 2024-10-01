@@ -10,6 +10,11 @@
 	     '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Can be removed once emacs 30 is available
+(unless (package-installed-p 'vc-use-package)
+  (package-vc-install "https://github.com/slotThe/vc-use-package"))
+(require 'vc-use-package)
+
 ;; ---------------------------------------------------------- [ style settings ]
 (use-package use-package-chords
   :ensure t
@@ -113,7 +118,10 @@
  '(custom-safe-themes
    '("76ddb2e196c6ba8f380c23d169cf2c8f561fd2013ad54b987c516d3cabc00216" default))
  '(package-selected-packages
-   '(find-file-in-repository find-file-in-project golden-ratio smartparens rainbow-delimiters nerd-icons highlight-indent-guides dirvish color-theme-sanityinc-tomorrow color-theme ace-jump-mode)))
+   '(typst-ts-mode vc-use-package find-file-in-repository find-file-in-project golden-ratio smartparens rainbow-delimiters nerd-icons highlight-indent-guides dirvish color-theme-sanityinc-tomorrow color-theme ace-jump-mode))
+ '(package-vc-selected-packages
+   '((typst-ts-mode :url "https://codeberg.org/meow_king/typst-ts-mode.git")
+     (vc-use-package :vc-backend Git :url "https://github.com/slotThe/vc-use-package"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

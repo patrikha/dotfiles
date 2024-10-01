@@ -1,3 +1,7 @@
+;; init-corfu.el --- Initialize corfu, completion in region function
+;;; Commentary:
+;;; Created by Patrik Hartlén
+
 (use-package corfu
   :ensure t
   ;; TAB-and-Go customizations
