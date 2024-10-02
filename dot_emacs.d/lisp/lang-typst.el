@@ -11,6 +11,7 @@
   (typst-ts-watch-options "--open")
   ;;(typst-ts-mode-grammar-location (expand-file-name "tree-sitter/libtree-sitter-typst.so" user-emacs-directory))
   (typst-ts-mode-enable-raw-blocks-highlight t)
+  (typst-ts-mode-indent-offset 2)
   :config
   (keymap-set typst-ts-mode-map "C-c C-c" #'typst-ts-tmenu))
 
