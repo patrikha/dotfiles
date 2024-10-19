@@ -4,7 +4,6 @@
 
 ;; sudo pacman -S python-language-server
 ;; pip install python-language-server[all] ptvsd (debugging)
-;; yay -S tree-sitter-python
 
 ;; (use-package dap-python
 ;;   :ensure t)

@@ -5,6 +5,8 @@
 ;; pacman -S gopls
 ;; yay -S tree-sitter-go tree-sitter-gomod-git
 
-(use-package go-ts-mode)
+(use-package go-ts-mode
+  :ensure t
+  :defer t)
 
 (provide 'lang-go)

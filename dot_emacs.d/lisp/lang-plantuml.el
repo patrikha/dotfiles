@@ -7,12 +7,14 @@
 
 (use-package plantuml-mode
   :ensure t
+  :defer t
   :init
   (setq plantuml-default-exec-mode 'jar)
   (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
 
 (use-package flycheck-plantuml
   :ensure t
+  :defer t
   :after (flycheck)
   :config
   (flycheck-plantuml-setup))

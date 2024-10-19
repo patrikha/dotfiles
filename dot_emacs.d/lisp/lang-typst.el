@@ -6,6 +6,7 @@
 
 (use-package typst-ts-mode
   :vc (typst-ts-mode :url "https://codeberg.org/meow_king/typst-ts-mode.git")
+  :defer t
   :custom
   (typst-ts-watch-options "--open")
   ;;(typst-ts-mode-grammar-location (expand-file-name "tree-sitter/libtree-sitter-typst.so" user-emacs-directory))
