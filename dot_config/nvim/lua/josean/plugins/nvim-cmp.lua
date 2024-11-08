@@ -45,10 +45,11 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "cmdline" },
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
@@ -57,6 +58,10 @@ return {
           maxwidth = 50,
           ellipsis_char = "...",
         }),
+      },
+      -- Add borders around the popup window
+      window = {
+        completion = cmp.config.window.bordered(),
       },
     })
   end,
