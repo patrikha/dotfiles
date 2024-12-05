@@ -1,9 +1,8 @@
 # Dependencies
 # hyprpaper
-# hyprland-workspaces
-# hyprland-monitor-attached
 # hyprlock
 # hypridle
+# hyprsunset
 # foot
 # grim, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
@@ -211,7 +210,6 @@ submap = reset
 bind = , XF86MonBrightnessUp, exec, light -T 1.1; notify-send 'brightness up'
 bind = , XF86MonBrightnessDown, exec, light -T 0.9; notify-send 'brightness down'
 
-
 # Applications
 exec-once = ulauncher --no-window-shadow
 bind = $mainMod, D, exec, ulauncher-toggle
@@ -224,8 +222,6 @@ exec-once = dunst
 exec-once = foot --server
 
 exec-once = hypridle
-
-# exec-once = hyprland-workspaces `hyprctl monitors -j | jq -r ".[0].name"`
 
 # Adjust color temperature
 exec-once = hyprsunset
