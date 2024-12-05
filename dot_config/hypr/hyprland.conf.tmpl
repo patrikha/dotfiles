@@ -70,7 +70,7 @@ general {
     border_size = 2
     col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
     col.inactive_border = rgba(595959aa)
-    no_border_on_floating = true
+    # no_border_on_floating = true
 
     layout = dwindle
 }
@@ -225,14 +225,15 @@ exec-once = foot --server
 
 exec-once = hypridle
 
-exec-once = hyprland-workspaces `hyprctl monitors -j | jq -r ".[0].name"`
+# exec-once = hyprland-workspaces `hyprctl monitors -j | jq -r ".[0].name"`
+
+# Adjust color temperature
+exec-once = hyprsunset
 
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # Source theme
 exec-once = hyprpaper
-
-# exec-once = /usr/bin/hyprland-monitor-attached PATH_TO_ATTACHED_SHCRIPT.sh [PATH_TO_DETACHED_SHCRIPT.sh]
 
 # start waybar
 exec-once = ~/.config/waybar/launch.sh
