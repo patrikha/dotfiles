@@ -22,6 +22,7 @@ return {
         python = {
           "isort", --[[ "black"  ]]
         },
+        rust = { "rustfmt" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -29,6 +30,9 @@ return {
         timeout_ms = 1000,
       },
     })
+    conform.formatters.rustfmt = {
+      prepend_args = { "--edition", "2021" },
+    }
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
