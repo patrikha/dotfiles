@@ -1,6 +1,9 @@
 [edit]
-    command = "emacs"
+  command = "neovim"
 
 [diff]
-    command = "meld"
-    args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
+  command = "meld"
+  args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
+
+[merge]
+  command = "meld"
