@@ -20,7 +20,8 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = {
-          "isort", "ruff",
+          "isort",
+          "ruff",
         },
         rust = { "rustfmt" },
       },
