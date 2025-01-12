@@ -13,7 +13,6 @@ return {
         "yamlls",
         "pyright",
         "rust_analyzer",
-        "typst_lsp",
       },
     },
   },
