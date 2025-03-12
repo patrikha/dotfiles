@@ -32,7 +32,7 @@ return {
       },
     })
     conform.formatters.rustfmt = {
-      prepend_args = { "--edition", "2021" },
+      -- prepend_args = { "--edition", "2021" },
     }
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
