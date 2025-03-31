@@ -13,10 +13,10 @@ return {
       ensure_installed = {
         -- install language servers
         "lua-language-server",
-        "jsonls",
-        "yamlls",
+        "json-lsp",
+        "yaml-language-server",
         "pyright",
-        "rust_analyzer",
+        "rust-analyzer",
         -- install formatters
         "stylua",
 
