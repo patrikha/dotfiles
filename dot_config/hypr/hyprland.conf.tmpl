@@ -4,7 +4,7 @@
 # hypridle
 # hyprsunset
 # foot
-# grim, slurp, wl-copy
+# swappy, slurp, wl-copy
 # JetBrains Nerd Font & Phosphor icons
 # waybar
 # ttf-fira-sanc ttf-firacode-nerd
@@ -218,8 +218,7 @@ binde = , XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle; notify
 exec-once = ulauncher --no-window-shadow
 bind = $mainMod, D, exec, ulauncher-toggle
 bind = $mainMod, E, exec, pcmanfm
-bind = , print, exec, grim - | wl-copy
-bind = $mainMod, print, exec, grim -g "$(slurp)" - | wl-copy
+bind = $mainMod, print, exec, grim -g "$(slurp)" - | swappy -f -
 
 # Autostart
 exec-once = dunst
