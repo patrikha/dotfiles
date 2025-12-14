@@ -17,8 +17,14 @@ return {
         "yaml-language-server",
         "pyright",
         "rust-analyzer",
+        "tombi",
+        "tinymist",
+
         -- install formatters
         "stylua",
+        "prettier",
+        "xmlformatter",
+        "ruff",
 
         -- install debuggers
         "debugpy",

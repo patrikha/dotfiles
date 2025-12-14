@@ -1,0 +1,20 @@
+let {
+    $workspaces = { type = "workspaces" }
+
+    $focused = { type = "focused" icon_size = 16 truncate = "end" }
+
+    $battery = { type = "battery" }
+    $sys_info = { type = "sys_info" format = ["{cpu_percent}% " "{memory_percent}% "] interval.cpu = 1 }
+    $volume = { type = "volume" }
+    $tray = { type = "tray" }
+    $clock = { type = "clock" }
+
+} in {
+    position = "top"
+    height = 24
+    transparent = true
+
+    start = [ $workspaces ]
+    center = [ $focused ]
+    end = [ $battery $sys_info $volume $tray $clock ]
+}
