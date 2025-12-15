@@ -1,0 +1,50 @@
+let {
+    $workspaces = { type = "workspaces" }
+
+    $focused = { type = "focused" icon_size = 16 }
+
+    $battery = { type = "battery" }
+    $sys_info = { type = "sys_info" format = ["{cpu_percent}% " "{memory_percent}% "] interval.cpu = 1 }
+    $volume = { type = "volume" }
+    $tray = { type = "tray" }
+    $clock = { type = "clock" }
+
+} in {
+{{ if eq .chezmoi.hostname "sesa150507-beast" }}
+    monitors.DP-1 = {
+        position = "top"
+        height = 24
+        transparent = true
+
+        start = [ $workspaces ]
+        center = [ $focused ]
+        end = [ $sys_info $volume $tray $clock ]
+    }
+    monitors.DP-2 = {
+        position = "top"
+        height = 16
+        transparent = true
+
+        start = [ $workspaces ]
+        center = []
+        end = [ $clock ]
+    }
+    monitors.DP-3 = {
+        position = "top"
+        height = 16
+        transparent = true
+
+        start = [ $workspaces ]
+        center = []
+        end = [ $clock ]
+    }
+{{ else }}
+    position = "top"
+    height = 24
+    transparent = true
+
+    start = [ $workspaces ]
+    center = [ $focused ]
+    end = [ $battery $sys_info $volume $tray $clock ]
+{{ end }}
+}
