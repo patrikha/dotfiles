@@ -7,8 +7,7 @@ let {
     $sys_info = { type = "sys_info" format = ["{cpu_percent}% " "{memory_percent}% "] interval.cpu = 1 }
     $volume = { type = "volume" }
     $tray = { type = "tray" }
-    $clock = { type = "clock" }
-
+    $clock = { type = "clock" format = "%Y-%m-%d %H:%M" }
 } in {
 {{ if eq .chezmoi.hostname "sesa150507-beast" }}
     monitors.DP-1 = {
