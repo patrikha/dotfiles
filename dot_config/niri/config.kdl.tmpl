@@ -312,17 +312,8 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts ironbar, a commonly used bar for Wayland compositors.
-spawn-at-startup "ironbar"
-
-// Start hyprpaper
-spawn-at-startup "hyprpaper"
-
-// Start hypridle
-spawn-at-startup "hypridle"
-
-// Start ulauncher
-spawn-at-startup "ulauncher" "--no-window-shadow"
+// This line starts waybar, a commonly used bar for Wayland compositors.
+// spawn-at-startup "waybar"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -387,16 +378,6 @@ window-rule {
     opacity 0.95
 }
 
-window-rule {
-    match app-id="ulauncher"
-    shadow {
-        off
-    }
-    focus-ring {
-        off
-    }
-}
-
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -433,7 +414,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: ulauncher" { spawn "ulauncher-toggle"; }
+    Mod+D hotkey-overlay-title="Toggle spotlight" { spawn-sh "dms ipc call spotlight toggle"; }
     Mod+Pause hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -669,9 +650,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print { spawn-sh "dms ipc call niri screenshot"; }
+    Ctrl+Print { spawn-sh "dms ipc call niri screenshotScreen"; }
+    Alt+Print { spawn-sh "dms ipc call niri screenshotWindow"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
