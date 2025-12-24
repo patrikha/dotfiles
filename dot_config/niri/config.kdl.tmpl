@@ -69,6 +69,13 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -149,6 +156,9 @@ output "DP-3" {
     // automatically.
     position x=1200 y=240
 }
+
+// Let kanshi handle outputs
+spawn-at-startup "kanshi"
 {{ end }}
 
 // Settings that influence how windows are positioned and sized.
