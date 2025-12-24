@@ -118,12 +118,22 @@ output "DP-2" {
     scale 1
     transform "90"
     position x=0 y=0
+    layout {
+        default-column-width {
+            proportion 1.0;
+        }
+    }
 }
 output "DP-3" {
     mode "1920x1200"
     scale 1
     transform "90"
     position x=3760 y=0
+    layout {
+        default-column-width {
+            proportion 1.0;
+        }
+    }
 }
 {{ else }}
 /-output "DP-1" {
