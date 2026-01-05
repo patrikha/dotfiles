@@ -1,0 +1,14 @@
+profile desktop {
+  output "Lenovo Group Limited LEN T2454pA V1469383" mode 1920x1200 scale 1 position 0,0 transform "90"
+  output "Lenovo Group Limited N27p UMA48159" mode 3840x2160 scale 1.5 position 1200,0
+  output "Samsung Display Corp. 0x4158 Unknown" mode 1920x1080 scale 1.25 position 3760,0
+}
+
+profile limhamn {
+  output "Samsung Electric Company U32J59x H4LR200449" mode 3840x2160 scale 1.5 position 0,0
+  output "Samsung Display Corp. 0x4158 Unknown" mode 1920x1080 scale 1.25 position 2560,0
+}
+
+profile laptop {
+  output "Samsung Display Corp. 0x4158 Unknown" mode 1920x1080 scale 1.25 position 0,0
+}
