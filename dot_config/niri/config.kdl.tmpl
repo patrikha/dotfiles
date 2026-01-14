@@ -67,6 +67,9 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
+
+    // Switch to workspace you came from if same index is selected.
+    workspace-auto-back-and-forth
 }
 
 // Disable the hot corners.
@@ -436,6 +439,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Toggle spotlight" { spawn-sh "dms ipc call spotlight toggle"; }
     Mod+Pause hotkey-overlay-title="Open power menu" { spawn-sh "dms ipc call powermenu toggle"; }
+    Mod+P hotkey-overlay-title="Lock the screen immediately" { spawn-sh "dms ipc call lock lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
