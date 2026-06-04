@@ -1,0 +1,6 @@
+#.chezmoiignore
+{{ if ne .chezmoi.os "windows" }}
+windows/AppData/Roaming/ruff/ruff.toml
+{{ else }}
+dot_config/ruff/dot_ruff.toml
+{{ end }}
