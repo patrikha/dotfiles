@@ -3,3 +3,5 @@ theme = Tomorrow Night Blue
 
 font-family = "Hack"
 font-size = 12
+
+custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
