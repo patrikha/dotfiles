@@ -23,5 +23,8 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+-- Enable the experimental UI2 native messaging and cmdline system
+require("vim._core.ui2").enable()
+
 require "lazy_setup"
 require "polish"

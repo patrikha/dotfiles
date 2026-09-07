@@ -4,4 +4,7 @@ theme = Tomorrow Night Blue
 font-family = "Hack"
 font-size = 12
 
+# Add 2px to the bar cursor's width (insert mode in vim, shell prompt, etc.)
+adjust-cursor-thickness = 2
+
 custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
